@@ -24,7 +24,8 @@ function App() {
     }
 
     return (
-        <div>
+        <div className={"space-y-8"}>
+            <h1 className={"text-4xl font-bold text-center"}>Article Generator (with AI...again)</h1>
             <Button onClick={callArticle}>Generate</Button>
             <div className={"grid grid-cols-3 gap-4"}>
                 {articles.map((article: Article, index: number) => (

@@ -1,4 +1,5 @@
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import {Button} from "@/components/ui/button.tsx";
 
 interface Article {
     title: string;
@@ -12,16 +13,17 @@ interface Props {
 
 export default function ArticleCard({article}: Props) {
     return (
-        <Card>
+        <Card className={"flex flex-col justify-end h-80"}>
             <CardHeader>
                 <CardTitle>{article.title}</CardTitle>
                 <CardDescription>{article.description}</CardDescription>
             </CardHeader>
             <CardContent>
-                <a className={"text-blue-700"} href={article.url}>Article Content</a>
+                <Button variant={"link"} className={"text-blue-700"}> <a href={article.url}> Article
+                    Content</a></Button>
             </CardContent>
             <CardFooter>
-                <p>Card Footer</p>
+                <Button variant={"secondary"}>Edit Article</Button>
             </CardFooter>
         </Card>
     );
