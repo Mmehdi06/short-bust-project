@@ -51,7 +51,8 @@ function Home() {
                         </div>
                     ))
                 ) : (
-                    <div>No articles found</div>
+                    // If there are no articles, display a message
+                    <p className=" container text-center">No articles found</p>
                 )}
             </div>
         </div>

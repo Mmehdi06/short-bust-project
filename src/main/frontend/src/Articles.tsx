@@ -1,6 +1,8 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import Notes from "@/components/ui/Notes.tsx";
+import {TNote} from "@/types/Tnode.ts";
 
 interface Article {
     id: number;
@@ -9,10 +11,9 @@ interface Article {
     url: string;
 }
 
-
 function Articles() {
     const {id} = useParams();
-    const [articleBody, setArticleBody] = useState();
+    const [articleBody, setArticleBody] = useState<string | null>(null); // Change initial state to null
 
     useEffect(() => {
         const fetchArticle = async () => {
@@ -27,8 +28,8 @@ function Articles() {
                     console.log("paramURL: ", param.url);
                     const articleResponse = await axios.get(`http://localhost:8080/api/article/body`, {
                         headers: {
-                            "Article-url": param.url
-                        }
+                            "Article-url": param.url,
+                        },
                     });
 
                     setArticleBody(articleResponse.data);
@@ -44,9 +45,18 @@ function Articles() {
         fetchArticle();
     }, [id]);
 
+    const note: TNote = {
+        id: "0",
+        defaultContent: articleBody || "Loading...", // Use loading text if articleBody is null
+    };
+
     return (
         <div className={"container px-32"}>
-            {articleBody}
+            {articleBody !== null ? ( // Conditional rendering to display Notes when articleBody is not null
+                <Notes note={note}/>
+            ) : (
+                <p>Loading...</p>
+            )}
         </div>
     );
 }
