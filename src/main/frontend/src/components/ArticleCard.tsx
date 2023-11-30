@@ -18,11 +18,9 @@ export default function ArticleCard({article}: Props) {
         <Card className={"flex flex-col justify-end h-80"}>
             <CardHeader>
                 <CardTitle>{article.title}</CardTitle>
-                <CardDescription>{article.description}</CardDescription>
             </CardHeader>
             <CardContent>
-                <Button variant={"link"} className={"text-blue-700"}> <a href={article.url}> Article
-                    Content</a></Button>
+                <CardDescription>{article.description}</CardDescription>
             </CardContent>
             <CardFooter>
                 <Button variant={"secondary"}><a href={`/articles/${article.id}`}>Edit Article</a> </Button>
