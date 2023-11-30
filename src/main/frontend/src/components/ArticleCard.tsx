@@ -1,7 +1,9 @@
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button.tsx";
 
+
 interface Article {
+    id: number;
     title: string;
     description: string;
     url: string;
@@ -23,7 +25,7 @@ export default function ArticleCard({article}: Props) {
                     Content</a></Button>
             </CardContent>
             <CardFooter>
-                <Button variant={"secondary"}>Edit Article</Button>
+                <Button variant={"secondary"}><a href={`/articles/${article.id}`}>Edit Article</a> </Button>
             </CardFooter>
         </Card>
     );
