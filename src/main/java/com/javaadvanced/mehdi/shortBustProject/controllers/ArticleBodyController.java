@@ -76,7 +76,7 @@ public class ArticleBodyController {
         RestTemplate restTemplate = new RestTemplate( );
         
         // Replace 'YOUR_API_KEY' with your actual GPT-3 API key
-        String apiKey = "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";
+        String apiKey = "OPEN-AI API-KEY";
         String gpt3Endpoint = "https://api.openai.com/v1/engines/gpt-3.5-turbo-instruct/completions";
         
         HttpHeaders headers = new HttpHeaders( );
